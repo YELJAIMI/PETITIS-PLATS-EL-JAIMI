@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <!--Style css-->
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>Les Petits Plats</title>
+</head>
+
+<body>
+   <div class="container">
+       <!--HEADER-->
+        <header>  
+            <img src="icons/chapeau.svg" alt="logo" id="logo" >
+            <h1>Les petits plats</h1>
+        
+            <div class="research">
+            <input id="search" alt="search" type="search" placeholder="find a recipe"/>
+            <img src="./icons/loupe.svg" alt="Recherche" class="loupe"/>
+            </div>
+        </header>
+
+            <!-- TAGS -->
+            <div class=" tags"></div>
+             <!-- CONTENANT des trois boutons -->
+                <div class="button" id="boutton-ingredients" alt="trois-boutons">
+
+                 <!--contenant bouton ingredients + liste ingredients-->
+                 <div class="bouton-et-input">
+
+                     <!--button ingredients-->
+                     <button class=" button-ingredients" aria-label="button-ingredient">Ingredients
+                         <span class="photo-ingredient" >
+                              <img  src="icons/chevron_bas.svg" alt="chevron down">
+                         </span>
+                     </button>
+                     <div id="contents-ingredients">
+                        <div class="ingredient">
+
+                            <input 
+                            type="text" 
+                            class="form-input-ingredient"
+                            placeholder="Rechercher un ingredient"
+                            id="inputIngredient"
+                            autocomplete="off">
+
+                            <span class="chevron-ingred"  >
+                                <img src="icons/chevron_haut.svg" alt="chevron up">
+                            </span>
+                        </div>
+                         <!--contenant liste ingredients-->
+                         <div id="content-list-ingredients"></div>
+                    </div>
+                </div>
+
+                <!--contenant bouton appareils + liste d'appareils-->
+                <div class="bouton-et-input">
+
+                     <!--button appareils-->
+                     <button class="button-appareils" aria-label="appareils">Appareils
+                         <span class="photo-appareil" >
+                              <img src="icons/chevron_bas.svg" alt="chevron down">
+                         </span>
+                     </button>
+
+                     <div id="content-appareils">
+                        <div class="appareil">
+
+                           <input 
+                           type="text" 
+                           class="form-input-appareil" 
+                           placeholder="rechercher un appareil"
+                           id="inputAppareil"
+                           autocomplete="off">
+
+                           <span class="chevron-app" >
+                               <img src="icons/chevron_haut.svg" alt="chevron up">
+                          </span>
+                        </div>
+                        <!--contenant liste appareils-->
+                        <div id="content-list-appareils"></div>
+                    </div>
+                </div>
+
+                <div class="bouton-et-input">
+                     <!--button ustensiles-->
+                     <button class="button-ustensiles" aria-label="bouton-ustensils">Ustensiles
+                         <span class="photo-ustensile" >
+                              <img src="icons/chevron_bas.svg" alt="chevron down">
+                         </span>
+                     </button>
+
+                     <div id="content-ustensiles">
+                        <div class="ustensile">
+
+                           <input 
+                           type="text" 
+                           class="form-input-ustensile" 
+                           placeholder="rechercher un ustensile"
+                           id="inputUstensile"
+                           autocomplete="off">
+
+                           <span class="chevron-ustensil" >
+                               <img src="icons/chevron_haut.svg" alt="chevron up">
+                          </span>
+                        </div>
+                        <!--contenant liste ustensiles-->
+                        <div id="content-list-ustensiles"></div>
+                    </div>
+
+                </div>
+            </div>
+       <!--MAIN-->
+       <main id="main">
+
+       </main>
+   </div>
+
+<script src="data/recipes.js"></script>
+<script src="scripts/utils/button.js"></script>
+<script src="scripts/pages/index.js"></script>
+<script src="scripts/utils/mainBar.js"></script>
+<script src="scripts/pages/btnInput.js"></script>
+<script src="scripts/utils/filterSeachBtn.js"></script>
+<script src="scripts/pages/init.js"></script>
+
+</body>
+</html>
