@@ -39,34 +39,34 @@ console.log(ustensileFilter)
 
 /* :::::::::::::::        CREATION DES LISTES          ::::::::::::: */
 
-const listeIngredients = document.getElementById('content-list-ingredients');
+const contentIngredients = document.getElementById('content-list-ingredients');
 // crée une balise "p" pour chaque INGREDIENT  
 function createIngredient(){  
           ingredientsFilter.forEach((liste) => {
               const ingredient = document.createElement('p');
-              listeIngredients.appendChild(ingredient);
+              contentIngredients.appendChild(ingredient);
               ingredient.setAttribute("class","liste-ingredient");
               ingredient.textContent = liste; 
             })
 }
-const listeAppareils = document.getElementById('content-list-appareils');
+const contentAppareils = document.getElementById('content-list-appareils');
 // crée une balise "p" pour chaque APPAREIL
 function createAppareil() {
            appareilFilter.forEach((liste) => {
                const appareils = document.createElement('p');
-               listeAppareils.appendChild(appareils);
+               contentAppareils.appendChild(appareils);
                appareils.setAttribute("class","liste-appareil");
                appareils.textContent = liste;
             })
 }
 
 
-const listeUstensiles = document.getElementById('content-list-ustensiles');
+const contentUstensiles = document.getElementById('content-list-ustensiles');
 // crée une balise "p" pour chaque USTENSILE  
 function createUstensile() {
     ustensileFilter.forEach((liste) => {
         const ustensile = document.createElement('p');
-        listeUstensiles.appendChild(ustensile);
+        contentUstensiles.appendChild(ustensile);
         ustensile.setAttribute("class","liste-ustensile");
         ustensile.textContent = liste;
     })
@@ -111,8 +111,8 @@ function createTagIngredient() {
             // referme l'INPUT du menu déroulant
             inputIngredients.style.display = "none";
             boutonIngredients.style.display = "block";
+
             // appel la fonction qui trie les recettes par TAG
-            
             filterByTags(recipes);    
             // quand on ferme un tag 
             close.addEventListener('click', function() {
@@ -290,14 +290,13 @@ inputIngredient.addEventListener('keyup',function() {
     
 
     // on vide la liste d'ingrédient 
-    listeIngredients.innerHTML = "";
-     
-    
+    contentIngredients.innerHTML = "";
+
     // on crée une balise pour chaque résultat
     resultsearch.forEach(resultList => {
 
         const ingredient = document.createElement('p');
-        listeIngredients.appendChild(ingredient);
+        contentIngredients.appendChild(ingredient);
         ingredient.setAttribute("class","liste-ingredient");
         ingredient.innerHTML = resultList;   
     })
@@ -323,12 +322,12 @@ inputAppareil.addEventListener('keyup',function() {
     // filtre le tableau LISTE et récupere les appareils correspondant à la saisie sans les doublons
     const resultsearch = Array.from(new Set(liste)).filter(appareil => appareil.toLocaleLowerCase().includes(Search.toLocaleLowerCase()));
     // on vide la liste d'appareil dans la page
-    listeAppareils.innerHTML = ""; 
+    contentAppareils.innerHTML = ""; 
     // on crée une balise pour chaque résultat
     resultsearch.forEach(resultList => {
             
         const appareil = document.createElement('p');
-        listeAppareils.appendChild(appareil);
+        contentAppareils.appendChild(appareil);
         appareil.setAttribute("class","liste-appareil");
         appareil.innerHTML = resultList;    
     })   
@@ -357,13 +356,13 @@ inputUstensile.addEventListener('keyup',function() {
     const resultsearch = Array.from(new Set(liste)).filter(ustensile => ustensile.toLocaleLowerCase().includes(Search.toLocaleLowerCase()));
 
     // on vide la liste d'ingrédient dans la page
-    listeUstensiles.innerHTML = "";
+    contentUstensiles.innerHTML = "";
      console.log(resultsearch);
     // on crée une balise pour chaque résultat
     resultsearch.forEach(resultList => {
 
         const ustensile = document.createElement('p');
-        listeUstensiles.appendChild(ustensile);
+        contentUstensiles.appendChild(ustensile);
         ustensile.setAttribute("class","liste-ustensile");
         ustensile.innerHTML = resultList;    
     })
