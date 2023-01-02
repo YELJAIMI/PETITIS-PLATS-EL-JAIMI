@@ -32,11 +32,11 @@ function search(recipes) {
     let resultat = [];
     
     if (mainBar.value.length > 2){
-        recipes.forEach((recette) => {
+        for (let recette of recipes) {
             if (filterTitle(recette) ||filterIngredient(recette) || filterDescription(recette)) {
                 resultat.push(recette);
             }
-        })  
+        }  
     }
     if (mainBar.value.length < 3) {
         return recipes;
