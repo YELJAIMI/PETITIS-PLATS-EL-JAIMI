@@ -14,21 +14,18 @@ function filterByTags(recipes) {
    
    if(ingredientTag.length > 0) {
        ingredientTag.forEach(valueTag => {
-        console.log(valueTag.innerText)
+        //console.log(valueTag.innerText)
                    //suppression de l'ingredient dans le tableau
-                  const result = allIngredients.filter((contentIngredients) => contentIngredients !== valueTag.innerText);
-                  console.log(result);
-                 /*if (ingredientTag) {
-                     ingredientTag.forEach((allIngredients) => {
-                     // Si l'élément existe, le retirer de la liste
-                         if (allIngredients.indexOf(listeIngredients) !== -1) {
-                            allIngredients.splice(listeIngredients.indexOf(listeIngredients), +1);
-                         }
-                    })
-                }*/
+                    //  const result = listeIngredients.filter((ingredientTag) => ingredientTag !== valueTag.innerText);
+                    //  console.log(result);
            console.log(listeIngredients);
+            const liste = valueTag.innerText;
+            const Ing = listeIngredients.filter((ingredient) => ingredient !== valueTag.innerText);
+            console.log(Ing);
            let resultDisplay = [];
+           //console.log(resultat);
            resultat.forEach(recette => {
+           // console.log(recette.ingredients);
                recette.ingredients.forEach((liste) => {
                   let ingredient = liste.ingredient;
                   //console.log("ingredient", ingredient)
@@ -38,9 +35,10 @@ function filterByTags(recipes) {
                     }
                 })
             })
+            resultDisplay.filter((ingredientTag) => ingredientTag !== valueTag.innerText);
            resultat = resultDisplay;  
         })
-    
+
     }
     
    if(appareilTag.length > 0) {
