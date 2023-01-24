@@ -1,12 +1,13 @@
 // crée un article  pour chaque correspondance entre le tag ingredient et les recettes//
 function filterByTags(recipes) {
-           
+    
    // récupère le résultat de la recherche principale
    let resultat = search(recipes);
    // récupère les ingredients,appareils des recettes afficher
-    const listeIngredients = [];
-    const listeAppareils = [];
-    const listeUstensiles = [];
+   
+   const listeIngredients = [];
+   const listeAppareils = [];
+   const listeUstensiles = [];
    // sélectionne les tags affichés
    let ingredientTag = Array.from(document.getElementsByClassName('tag-ingredient'));
    let appareilTag = Array.from(document.getElementsByClassName('tag-appareil'));
@@ -18,12 +19,11 @@ function filterByTags(recipes) {
                    //suppression de l'ingredient dans le tableau
                     //  const result = listeIngredients.filter((ingredientTag) => ingredientTag !== valueTag.innerText);
                     //  console.log(result);
-           console.log(listeIngredients);
-            const liste = valueTag.innerText;
-            const Ing = listeIngredients.filter((ingredient) => ingredient !== valueTag.innerText);
-            console.log(Ing);
+                    console.log(ingredientsFilter);
+                    let Ing = ingredientsFilter.filter((ingredientsFilter) => ingredientsFilter !== valueTag.innerText);
+                    console.log(Ing);
            let resultDisplay = [];
-           //console.log(resultat);
+            //console.log(resultDisplay);
            resultat.forEach(recette => {
            // console.log(recette.ingredients);
                recette.ingredients.forEach((liste) => {
@@ -44,6 +44,8 @@ function filterByTags(recipes) {
    if(appareilTag.length > 0) {
     appareilTag.forEach(valueTag => {
         //console.log(valueTag.innerText)
+        const app = appareilFilter.filter((appareilTag) => appareilTag !== valueTag.innerText);
+        console.log(app);
         let resultDisplay = [];
         resultat.forEach(recette => {
             let appareil =  recette.appliance
@@ -100,11 +102,10 @@ function filterByTags(recipes) {
    }) 
    if (resultat.length === 0) {
      messageError();  
-    }  
+    }
 }
 
-
-// met à jour les listes d'ingredient,d'appareil,d'ustensile
+    // met à jour les listes d'ingredient,d'appareil,d'ustensile
 function arrayRecette(recette,listeIngredients,listeAppareils,listeUstensiles) {
     let recettes = [];
     recettes.push(recette);
@@ -138,6 +139,7 @@ function listeAppareil(appareils) {
     appareil.setAttribute("class","liste-appareil");
     appareil.textContent = appareils; 
 }
+
 // construit un ustensile
 function listeUstensile(ustensile) {
     const ustensiles = document.createElement('p');

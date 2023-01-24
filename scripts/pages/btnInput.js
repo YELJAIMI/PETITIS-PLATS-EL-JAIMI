@@ -11,14 +11,14 @@ recipes.forEach((recettes) => {
     })
 })
 
-console.log(ingredientsArray);
+//console.log(ingredientsArray);
 // recupere tous les appareils et les envoie dans "appareilArray"
 recipes.forEach((recettes) => {
     appareilArray.push(recettes.appliance);
  
 })
 
-console.log(appareilArray);
+//console.log(appareilArray);
 // recupere tous les ustensiles et les envoie dans "ustensileArray"
 recipes.forEach((recettes) => {
     recettes.ustensils.forEach((recette) => {
@@ -27,21 +27,29 @@ recipes.forEach((recettes) => {
  
 })
 
-console.log(ustensileArray);
+//console.log(ustensileArray);
 // supprime les doublons  et crée un nouveau tableau
 let ingredientsFilter =[...new Set(ingredientsArray)];
-console.log(ingredientsFilter)
+//console.log(ingredientsFilter)
 let appareilFilter = [...new Set(appareilArray)];
-console.log(appareilFilter)
+//console.log(appareilFilter)
 let ustensileFilter = [...new Set(ustensileArray)];
-console.log(ustensileFilter)
+//console.log(ustensileFilter)
 
 
 /* :::::::::::::::        CREATION DES LISTES          ::::::::::::: */
 
 const contentIngredients = document.getElementById('content-list-ingredients');
 // crée une balise "p" pour chaque INGREDIENT  
-function createIngredient(){  
+function createIngredient(Ing = []){  
+    if(Ing.length > 0) {
+        Ing.forEach((liste) => {
+            const ingredient = document.createElement('p');
+            contentIngredients.appendChild(ingredient);
+            ingredient.setAttribute("class","liste-ingredient");
+            ingredient.textContent = liste;
+        })
+    }
           ingredientsFilter.forEach((liste) => {
               const ingredient = document.createElement('p');
               contentIngredients.appendChild(ingredient);
@@ -70,7 +78,7 @@ function createUstensile() {
         ustensile.setAttribute("class","liste-ustensile");
         ustensile.textContent = liste;
     })
-}     
+}    
 
 /*   :::::::::::::::           CREATION DES TAGS ET FILTRE         ::::::::::::::  */
 
@@ -83,9 +91,9 @@ const tag = document.querySelector('.tags');
 const allIngredients = document.getElementsByClassName('liste-ingredient');
 //const buttonIngred = document.getElementById('contents-ingredients');
 
-function createTagIngredient() {    
-    for (let i = 0; i < allIngredients.length; i++) {
-    
+function createTagIngredient() {  
+    for (let i = 0; i < allIngredients.length; i++) {  
+
         allIngredients[i].addEventListener('click' , function(e) {
             e.preventDefault();
             const tagIngredients = document.createElement('div');
